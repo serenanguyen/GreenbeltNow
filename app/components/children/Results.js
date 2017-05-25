@@ -1,11 +1,8 @@
-var React = require("react");
+import React from "react";
 
-var Results = React.createClass({
-    getInitialState: function(){
-        return{results:""};
-    },
+class Results extends React.Component {
 
-    render: function(){
+    render(){
         return(
             <div>
                 <p>Results</p>
@@ -13,6 +10,6 @@ var Results = React.createClass({
             </div>
         )
     }
-});
+};
 
 module.exports = Results;

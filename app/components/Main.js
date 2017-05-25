@@ -1,32 +1,35 @@
-var React = require("react");
+import React from "react";
 
-var Header = require("./children/Header");
-var Locations = require("./children/Locations");
-var Results = require("./children/Results");
+import Header from "./children/Header";
+import Locations from "./children/Locations";
+import Results from "./children/Results";
+import Admin from "./children/Admin";
 
 // helper for making ajax requests to our api
-var helpers = require("./utils/helpers");
+import helpers from "./utils/helpers";
 
-var Main = React.createClass({
+class Main extends React.Component{
 
-    render: function(){
+    render(){
         return(
-            <div className="container">
+            <div className="container text-center">
                 <div className="col-md-12">
                     <Header />
                 </div>
                 <div className="col-md-12">
-                    <Locations />
+                    <Locations handleSelect/>
                 </div>
                 <div className="col-md-12">
-                    {/*{this.props.children}*/}
                     <Results />
+                </div>
+                <div className="col-md-12">
+                    <Admin />
                 </div>
 
 
             </div>
         )
     }
-});
+};
 
 module.exports = Main;

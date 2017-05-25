@@ -1,0 +1,50 @@
+[
+  {
+     "name": "Lost Creek",
+     "address": "1710 Camp Craft Rd",
+     "info": "This spot is right in Zilker park",
+     "locationID": 08155240
+  },
+  {
+    "name": "Sculpture Falls",
+    "address": "Barton Springs Rd",
+    "info": "This spot is right in Zilker park",
+    "locationID": 08155240
+  },
+  {
+    "name": "Twin Falls",
+    "address": "3918 S. Mopac Expy",
+    "info": "This spot is right in Zilker park",
+    "locationID": 08155300
+  },
+  {
+    "name": "360",
+    "address": "3755-B Capital of Texas Hwy (Loop 360)",
+    "info": "This spot is right in Zilker park",
+    "locationID": 08155300
+  },
+  {
+    "name": "Gus Fruh",
+    "address": "2642 Barton Hills Dr",
+    "info": "This spot is right in Zilker park",
+    "locationID": 08155400
+  },
+  {
+    "name": "Spyglass",
+    "address": "1601 Spyglass Dr",
+    "info": "This spot is right in Zilker park",
+    "locationID": 08155400
+  },
+  {
+    "name": "Campbell's Hole",
+    "address": "2010 Homedale Dr",
+    "info": "This spot is right in Zilker park",
+    "locationID": 08155400
+  },
+  {
+    "name": "Barton Creek Above Barton Springs Pool",
+    "address": "2201 Barton Springs Rd",
+    "info": "This spot is right in Zilker park",
+    "locationID": 08155400
+  }
+]
