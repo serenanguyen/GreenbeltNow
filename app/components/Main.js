@@ -9,6 +9,14 @@ import Admin from "./children/Admin";
 import helpers from "./utils/helpers";
 
 class Main extends React.Component{
+    setSubmit(name, address, info, locationId){
+        this.setState({
+            name: name,
+            address: address,
+            info: info,
+            locationId: locationId
+        });
+    }
 
     render(){
         return(
@@ -17,13 +25,13 @@ class Main extends React.Component{
                     <Header />
                 </div>
                 <div className="col-md-12">
-                    <Locations handleSelect/>
+                    <Locations />
                 </div>
                 <div className="col-md-12">
                     <Results />
                 </div>
                 <div className="col-md-12">
-                    <Admin />
+                    <Admin setSubmit/>
                 </div>
 
 
