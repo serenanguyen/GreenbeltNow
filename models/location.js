@@ -6,7 +6,7 @@ var LocationSchema = new Schema({
     name: {type: String},
     address: {type: String},
     info: {type: String},
-    locationID: {type: Number}
+    locationid: {type: String}
 });
 
 var Location = mongoose.model("Location", LocationSchema);

@@ -11,7 +11,7 @@ class Locations extends React.Component{
                     onSelect={function(eventKey){helpers.handleSelect(eventKey)}}
                 >
                     <MenuItem eventKey="Lost Creek">Lost Creek</MenuItem>
-                    <MenuItem eventKey="08155240">Sculpture Falls</MenuItem>
+                    <MenuItem eventKey="Sculpture Falls">Sculpture Falls</MenuItem>
                     <MenuItem eventKey="Twin Falls">Twin Falls</MenuItem>
                     <MenuItem eventKey="360">360</MenuItem>
                     <MenuItem eventKey="Gus Fruh">Gus Fruh</MenuItem>

@@ -39,7 +39,7 @@ app.get("/", function(req,res){
 });
 
 // get all locations when visiting /api
-app.get("/api", function(req, res){
+app.get("/api/locations", function(req, res){
     Location.find({}).exec(function(err,doc){
         if(err){
             console.log(err);
@@ -49,15 +49,29 @@ app.get("/api", function(req, res){
     });
 });
 
-app.post("/api", function(req, res){
-    console.log(req);
-    // Location.create({
-    //     name:
-    //     address:
-    //     info:
-    //     locationId:
-    // })
-})
+app.post("/api/locations", function(req, res){
+    let newLocation = new Location(req.body);
+    newLocation.save(function(err,doc){
+        console.log("doc: ", doc);
+        if(err){
+            console.log(err);
+        } else {
+            res.send(doc);
+        }
+    });
+});
+
+app.post("/api/result", function(req, res){
+    // need to grab eventKey
+    Location.findOne(req.body).exec(function(err,doc){
+        if(err){
+            console.log(err);
+        } else {
+            res.send(doc);
+        }
+    })
+});
+
 
 // listener
 app.listen(PORT, function(){

@@ -5,40 +5,7 @@ import Locations from "./children/Locations";
 import Results from "./children/Results";
 import Admin from "./children/Admin";
 
-// helper for making ajax requests to our api
-import helpers from "./utils/helpers";
-
 class Main extends React.Component{
-
-    constructor(props){
-        super(props);
-        this.state = {
-            name: "",
-            address: "",
-            info: "",
-            locationId: ""
-        }
-
-        this.setSubmit = this.setSubmit.bind(this);
-    }
-
-
-    setSubmit(name, address, info, locationId){
-        this.setState({
-            name: name,
-            address: address,
-            info: info,
-            locationId: locationId
-        });
-    }
-
-    // submitLocation(location){
-    //     helpers.postLocation(location).then(function(newLocation){
-    //
-    //     }
-    // })
-
-
     render(){
         return(
             <div className="container text-center">
@@ -52,7 +19,7 @@ class Main extends React.Component{
                     <Results />
                 </div>
                 <div className="col-md-12">
-                    <Admin setSubmit={this.setSubmit}/>
+                    <Admin />
                 </div>
 
 

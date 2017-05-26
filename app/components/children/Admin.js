@@ -1,4 +1,5 @@
 import React from "react";
+import helpers from "../utils/helpers";
 
 class Admin extends React.Component {
     // ~getInitialState
@@ -10,7 +11,7 @@ class Admin extends React.Component {
                 name: "",
                 address: "",
                 info: "",
-                locationId: ""
+                locationid: ""
             };
         // access Admin state
         this.handleChange = this.handleChange.bind(this);
@@ -26,8 +27,7 @@ class Admin extends React.Component {
     // when you submit send the data from the form
     handleSubmit(event){
         event.preventDefault();
-        // set parent to have the search term
-        this.props.setSubmit({name:this.state.name, address:this.state.address, info:this.state.info, locationId:this.state.locationId});
+        helpers.postLocation(this.state.name, this.state.address, this.state.info, this.state.locationid);
     }
 
     render(){
@@ -75,9 +75,9 @@ class Admin extends React.Component {
                             USGS ID
                         </label>
                         <input
-                            value={this.state.locationId}
+                            value={this.state.locationid}
                             className="form-control"
-                            id="locationId"
+                            id="locationid"
                             onChange={this.handleChange}
                             required
                         />

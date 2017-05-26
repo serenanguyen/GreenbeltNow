@@ -1,7 +1,6 @@
 import React from "react";
 
 class Results extends React.Component {
-
     render(){
         return(
             <div>
@@ -9,7 +8,7 @@ class Results extends React.Component {
 
             </div>
         )
-    }
+    };
 };
 
 module.exports = Results;
