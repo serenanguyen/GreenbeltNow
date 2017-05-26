@@ -1,5 +1,4 @@
 import React from "react";
-import { FormGroup, FormControl, ControlLabel, Button, Panel } from 'react-bootstrap';
 
 class Admin extends React.Component {
     // ~getInitialState
@@ -12,26 +11,21 @@ class Admin extends React.Component {
                 address: "",
                 info: "",
                 locationId: ""
-            }
+            };
+        // access Admin state
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
+    // when there is a change in the form change the states
    handleChange(event){
        let newState = {};
        newState[event.target.id] = event.target.value;
-       this.setState({
-           name: newState.locationName,
-           address: newState.locationAddress,
-           info: newState.locationInfo,
-           locationId: newState.locationId
-       });
+       this.setState(newState);
     }
 
+    // when you submit send the data from the form
     handleSubmit(event){
         event.preventDefault();
-        console.log(this.props.setSubmit);
-
         // set parent to have the search term
         this.props.setSubmit({name:this.state.name, address:this.state.address, info:this.state.info, locationId:this.state.locationId});
     }
@@ -41,62 +35,59 @@ class Admin extends React.Component {
             <div>
                 <p>Admin</p>
                 {/* form for grabbing data sent to db */}
-                <Panel header="Location">
+                <div className="panel panel-default">
+                    <div className="panel-heading">
+                        Location
+                    </div>
                 <form onSubmit={this.handleSubmit}>
-                    <FormGroup
-                        controlId="locationName"
-                        className="text-left"
-                    >
-                        <ControlLabel>Name</ControlLabel>
-                        <FormControl
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.handleChange}
-                        />
-                        <FormControl.Feedback />
-                    </FormGroup>
-                    <FormGroup
-                        controlId="locationAddress"
-                        className="text-left"
-                    >
-                        <ControlLabel>Address</ControlLabel>
-                        <FormControl
-                            type="text"
+                    <div className="form-group">
+                        <label>
+                            Name
+                        </label>
+                            <input
+                                value={this.state.name}
+                                className="form-control"
+                                id="name"
+                                onChange={this.handleChange}
+                                required
+                            />
+                        <label>
+                            Address
+                        </label>
+                        <input
                             value={this.state.address}
+                            className="form-control"
+                            id="address"
                             onChange={this.handleChange}
+                            required
                         />
-                        <FormControl.Feedback />
-                    </FormGroup>
-                    <FormGroup
-                        controlId="locationInfo"
-                        className="text-left"
-                    >
-                        <ControlLabel>Info</ControlLabel>
-                        <FormControl
-                            type="text"
+                        <label>
+                            Info
+                        </label>
+                        <input
                             value={this.state.info}
+                            className="form-control"
+                            id="info"
                             onChange={this.handleChange}
+                            required
                         />
-                        <FormControl.Feedback />
-                    </FormGroup>
-                    <FormGroup
-                        controlId="locationID"
-                        className="text-left"
-                    >
-                        <ControlLabel>USGS ID</ControlLabel>
-                        <FormControl
-                            type="text"
+                        <label>
+                            USGS ID
+                        </label>
+                        <input
                             value={this.state.locationId}
+                            className="form-control"
+                            id="locationId"
                             onChange={this.handleChange}
+                            required
                         />
-                        <FormControl.Feedback />
-                    </FormGroup>
-
-                    <Button type="submit">
-                        Submit
-                    </Button>
+                        <button className="btn btn-primary"
+                                type="submit">
+                            Submit
+                        </button>
+                    </div>
                 </form>
-                </Panel>
+                </div>
 
             </div>
         )

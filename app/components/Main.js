@@ -9,6 +9,20 @@ import Admin from "./children/Admin";
 import helpers from "./utils/helpers";
 
 class Main extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            name: "",
+            address: "",
+            info: "",
+            locationId: ""
+        }
+
+        this.setSubmit = this.setSubmit.bind(this);
+    }
+
+
     setSubmit(name, address, info, locationId){
         this.setState({
             name: name,
@@ -17,6 +31,13 @@ class Main extends React.Component{
             locationId: locationId
         });
     }
+
+    // submitLocation(location){
+    //     helpers.postLocation(location).then(function(newLocation){
+    //
+    //     }
+    // })
+
 
     render(){
         return(
@@ -31,7 +52,7 @@ class Main extends React.Component{
                     <Results />
                 </div>
                 <div className="col-md-12">
-                    <Admin setSubmit/>
+                    <Admin setSubmit={this.setSubmit}/>
                 </div>
 
 

@@ -11,6 +11,12 @@ const helper = {
 
 
     },
+    postLocation(result){
+        console.log(result)
+        // return axios.post("/api", {
+        //
+        // })
+    },
 
     runQuery(search){
         var queryURL = "https://waterservices.usgs.gov/nwis/iv/?site=" + locationID + "&format=json&parameterCd=00065,00060&siteStatus=active";

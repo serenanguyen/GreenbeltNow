@@ -38,6 +38,27 @@ app.get("/", function(req,res){
     res.sendFile(__firname = "/public/index.html");
 });
 
+// get all locations when visiting /api
+app.get("/api", function(req, res){
+    Location.find({}).exec(function(err,doc){
+        if(err){
+            console.log(err);
+        } else {
+            res.send(doc);
+        }
+    });
+});
+
+app.post("/api", function(req, res){
+    console.log(req);
+    // Location.create({
+    //     name:
+    //     address:
+    //     info:
+    //     locationId:
+    // })
+})
+
 // listener
 app.listen(PORT, function(){
     console.log("App listening on PORT: " + PORT);
