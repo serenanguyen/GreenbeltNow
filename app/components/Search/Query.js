@@ -2,13 +2,36 @@ import React from "react";
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 import helpers from "../utils/helpers";
 
-class Locations extends React.Component{
+class Query extends React.Component{
+
+    constructor(props){
+        super(props);
+        this.state= {
+            location: ""
+        };
+        this.handleSelect = this.handleSelect.bind(this);
+    }
+
+    handleSelect(eventKey){
+        const updateSearch = this.props.updateSearch;
+        this.setState({
+            location: eventKey
+        });
+        helpers.getLocationObj(eventKey).then(function(response){
+            updateSearch(response.data)
+        });
+
+    }
+
+
 
     render(){
+        const handleSelect = this.handleSelect;
+        // onSelect={function(eventKey){this.handleSelect(eventKey)}.bind(this)}
         return(
             <ButtonToolbar>
                 <DropdownButton bsStyle="default" title="Choose a Location" id="dropdown"
-                    onSelect={function(eventKey){helpers.handleSelect(eventKey)}}
+                    onSelect={function(eventKey){handleSelect(eventKey)}}
                 >
                     <MenuItem eventKey="Lost Creek">Lost Creek</MenuItem>
                     <MenuItem eventKey="Sculpture Falls">Sculpture Falls</MenuItem>
@@ -25,4 +48,4 @@ class Locations extends React.Component{
 
 };
 
-module.exports = Locations;
+module.exports = Query;

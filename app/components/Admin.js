@@ -1,5 +1,5 @@
 import React from "react";
-import helpers from "../utils/helpers";
+import helpers from "./utils/helpers";
 
 class Admin extends React.Component {
     // ~getInitialState

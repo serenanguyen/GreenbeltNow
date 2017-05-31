@@ -61,9 +61,9 @@ app.post("/api/locations", function(req, res){
     });
 });
 
-app.post("/api/result", function(req, res){
-    // need to grab eventKey
-    Location.findOne(req.body).exec(function(err,doc){
+app.get("/api/result", function(req, res){
+    console.log(req.query);
+    Location.findOne(req.query).exec(function(err,doc){
         if(err){
             console.log(err);
         } else {

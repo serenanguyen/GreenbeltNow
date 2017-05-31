@@ -1,9 +1,8 @@
 import React from "react";
 
-import Header from "./children/Header";
-import Locations from "./children/Locations";
-import Results from "./children/Results";
-import Admin from "./children/Admin";
+import Header from "./Header";
+import Search from "./Search";
+import Admin from "./Admin";
 
 class Main extends React.Component{
     render(){
@@ -13,10 +12,7 @@ class Main extends React.Component{
                     <Header />
                 </div>
                 <div className="col-md-12">
-                    <Locations />
-                </div>
-                <div className="col-md-12">
-                    <Results />
+                    <Search />
                 </div>
                 <div className="col-md-12">
                     <Admin />

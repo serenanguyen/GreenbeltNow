@@ -2,14 +2,6 @@ import axios from "axios";
 
 const helper = {
 
-    // handling selection of location in dropdown menu
-    handleSelect(eventKey){
-        var eventKey = {
-            name: eventKey
-        }
-      return axios.post("/api/result", eventKey);
-    },
-
     // posting new location to /api/locations
     postLocation(name, address, info, locationid){
         var newLocation = {
@@ -26,14 +18,26 @@ const helper = {
         return axios.get("/api/locations")
     },
 
+    // get location object with matching name
+    getLocationObj(locationName){
+        console.log(locationName);
+      return axios.get("/api/result", {
+          params: {
+              name: locationName
+          }
+      })
+    },
+
     // running query
-    runQuery(search){
-        var queryURL = "https://waterservices.usgs.gov/nwis/iv/?site=" + locationID + "&format=json&parameterCd=00065,00060&siteStatus=active";
-        return axios.get(queryURL).then(function(response){
-            if(response.data){
-                console.log(results.data);
+    runQuery(locationID){
+        return axios.get("https://waterservices.usgs.gov/nwis/iv/", {
+            params: {
+                site: locationID,
+                format: "json",
+                parameterCd: "00065,00060",
+                siteStatus: "active"
             }
-        });
+        })
     }
 };
 
