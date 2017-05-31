@@ -38,6 +38,32 @@ const helper = {
                 siteStatus: "active"
             }
         })
+    },
+    // parse through json response
+    getWaterData(locationID, response, waterData){
+        // checking if query data matches location id
+        const resultID = response[0].sourceInfo.siteCode[0].value;
+        waterData = {
+            discharge: "",
+            waterLevel: ""
+        };
+        if(resultID === locationID){
+            response.map(function(data, index){
+                const dataType = data.variable.variableDescription;
+                const value = data.values[0].value[0].value;
+                // console.log(data);
+                if(dataType.includes('Discharge')){
+                    console.log("discharge", value);
+                    waterData.discharge = value;
+
+                } else if(dataType.includes('height')){
+                    console.log("water level", value);
+                    waterData.waterLevel = value;
+                }
+            })
+        }
+        // return new waterData obj to function to be used in Search component
+        return waterData;
     }
 };
 
