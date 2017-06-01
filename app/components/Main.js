@@ -7,14 +7,14 @@ import Admin from "./Admin";
 class Main extends React.Component{
     render(){
         return(
-            <div className="container text-center">
-                <div className="col-md-12">
+            <div className="flexcontainer">
+                <div className="header">
                     <Header />
                 </div>
-                <div className="col-md-12">
+                <div className="search">
                     <Search />
                 </div>
-                <div className="col-md-12">
+                <div className="admin">
                     {/*<Admin />*/}
                 </div>
 

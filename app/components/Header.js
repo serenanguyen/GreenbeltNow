@@ -7,7 +7,7 @@ class Header extends React.Component {
         return(
             <div>
                 <p>Header</p>
-                <div className="col-md-12">
+                <div className="header">
                     <Weather />
                 </div>
             </div>
