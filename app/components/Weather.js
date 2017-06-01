@@ -17,7 +17,7 @@ class Weather extends React.Component {
          const weather = this.state.weather;
          return(
              <div>
-                 <b>Current Weather in Austin, TX</b>
+                 <h2>Current Weather in Austin, TX</h2>
                  <p>{weather.temperature} F</p>
                  <p>{weather.condition}
                      <span><img src={weather.image}/></span>

@@ -46,8 +46,8 @@ class Query extends React.Component{
         const handleSelect = this.handleSelect;
         const renderLocations = this.renderLocations;
         return(
-            <ButtonToolbar className="text-center">
-                <DropdownButton bsStyle="default" title="Choose a Location" id="dropdown"
+            <ButtonToolbar className="location fadeInDown">
+                <DropdownButton className="header" bsStyle="default" title="Choose a Location" id="dropdown"
                     onSelect={function(eventKey){handleSelect(eventKey)}}
                 >
                     {renderLocations()}

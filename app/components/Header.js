@@ -5,11 +5,10 @@ import Weather from "./Weather";
 class Header extends React.Component {
     render(){
         return(
-            <div>
-                <p>Header</p>
-                <div className="header">
-                    <Weather />
-                </div>
+            <div className="fadeInDown">
+
+                <Weather />
+
             </div>
         )
     }

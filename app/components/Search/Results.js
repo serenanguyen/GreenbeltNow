@@ -25,9 +25,8 @@ class Results extends React.Component {
         const waterData = this.props.waterData;
 
         return(
-            <div>
-                <u>Results</u>
-                <p>{location.name}</p>
+            <div className="results fadeInUp">
+                <h2>{location.name}</h2>
                 <p>{location.address}</p>
                 <p>{location.info}</p>
                 <div className="row">
@@ -35,11 +34,19 @@ class Results extends React.Component {
                            width={200} height={160}
                            label="Water Level (ft)"
                            max={10}
+                           color={"#B9E4D0"}
+                           topLabelStyle={{fontSize:'25px',fontFamily: 'Amatic SC',fontWeight: '700', color:'#055A5B'}}
+                           valueLabelStyle={{fontFamily: 'Raleway'}}
+                           minMaxLabelStyle={{fontFamily: 'Raleway'}}
                     />
                     <Gauge value={waterData.discharge}
                            width={200} height={160}
                            label="Water Flow (ft3/s)"
                            max={15}
+                           color={"#F7D385"}
+                           topLabelStyle={{fontSize:'25px',fontFamily: 'Amatic SC',fontWeight: '700', color:'#055A5B'}}
+                           valueLabelStyle={{fontFamily: 'Raleway'}}
+                           minMaxLabelStyle={{fontFamily: 'Raleway'}}
                     />
                 </div>
             </div>

@@ -1,13 +1,76 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+}
+
 .flexcontainer {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
-.header {
+.location {
+    display:flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+
+.results {
     display: flex;
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    color: #055A5B;
+}
+
+.header{
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    font-size: 25px;
+    color: #055A5B;
+}
+
+.btn-default:hover {
+    background-color: #B9E4D0;
+}
+
+@keyframes fadeInDown {
+    from{
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInDown{
+    animation-name: fadeInDown;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes fadeInUp {
+    from{
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.fadeInUp {
+    animation-name: fadeInUp;
+    animation-duration: .5s;
 }

@@ -8,13 +8,13 @@ class Main extends React.Component{
     render(){
         return(
             <div className="flexcontainer">
-                <div className="header">
+                <div>
                     <Header />
                 </div>
-                <div className="search">
+                <div>
                     <Search />
                 </div>
-                <div className="admin">
+                <div>
                     {/*<Admin />*/}
                 </div>
 
