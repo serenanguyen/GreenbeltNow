@@ -4,6 +4,9 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+// weather
+var weather = require('weather-js');
+
 // Location model
 var Location = require("./models/location");
 
@@ -48,7 +51,7 @@ app.get("/api/locations", function(req, res){
         }
     });
 });
-
+// posting new locations from admin component
 app.post("/api/locations", function(req, res){
     let newLocation = new Location(req.body);
     newLocation.save(function(err,doc){
@@ -60,9 +63,8 @@ app.post("/api/locations", function(req, res){
         }
     });
 });
-
+// grabbing matching location id
 app.get("/api/result", function(req, res){
-    console.log(req.query);
     Location.findOne(req.query).exec(function(err,doc){
         if(err){
             console.log(err);
@@ -71,7 +73,17 @@ app.get("/api/result", function(req, res){
         }
     })
 });
-
+// getting current weather data
+app.get("/api/weather", function(req,res){
+    weather.find({search: 'Austin, TX', degreeType: 'F'},
+        function(err, result) {
+            if(err){
+                console.log(err);
+            } else {
+                res.send(result[0]);
+            }
+        });
+})
 
 // listener
 app.listen(PORT, function(){

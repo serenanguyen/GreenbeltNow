@@ -46,7 +46,6 @@ class Search extends React.Component {
     render(){
         return(
             <div>
-                <p>Search</p>
                 {/* sending setLocation fnc to query component as updateSearch */}
                 <Query updateSearch={this.setLocation} />
                 {/* sending location data to results component */}

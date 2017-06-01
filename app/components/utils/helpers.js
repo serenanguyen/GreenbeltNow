@@ -1,5 +1,4 @@
 import axios from "axios";
-import weather from 'weather-js';
 
 const helper = {
 
@@ -21,7 +20,6 @@ const helper = {
 
     // get location object with matching name
     getLocationObj(locationName){
-        console.log(locationName);
       return axios.get("/api/result", {
           params: {
               name: locationName
@@ -52,13 +50,13 @@ const helper = {
             response.map(function(data, index){
                 const dataType = data.variable.variableDescription;
                 const value = data.values[0].value[0].value;
-                // console.log(data);
+                // if the data type is discharge
                 if(dataType.includes('Discharge')){
-                    console.log("discharge", value);
+                    // change the object prop to this value
                     waterData.discharge = value;
-
+                // if the data type is water height
                 } else if(dataType.includes('height')){
-                    console.log("water level", value);
+                    // change the prop to this value
                     waterData.waterLevel = value;
                 }
             })
@@ -66,15 +64,20 @@ const helper = {
         // return new waterData obj to function to be used in Search component
         return waterData;
     },
-
-    getWeather(){
-        return weather.find({
-            search:'Austin, TX', degreeType: 'F',
-            function(err, result){
-                if(err) console.log(err);
-                console.log(JSON.stringify(result, null, 2));
-            }
-        })
+    // get weather response and send only certain data back in an object
+    getWeather(weather){
+        weather = {
+            temperature: "",
+            condition: "",
+            image: ""
+        }
+        return axios.get("api/weather")
+            .then((response) => {
+                weather.temperature = response.data.current.temperature;
+                weather.condition = response.data.current.skytext;
+                weather.image = response.data.current.imageUrl;
+                return weather;
+            })
     }
 };
 

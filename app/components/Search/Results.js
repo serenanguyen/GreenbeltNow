@@ -8,29 +8,28 @@ class Results extends React.Component {
 
     constructor(props){
         super(props);
-        this.state={
-            weather: ""
+        // state for weather data
+        this.state = {
+            weather: {}
         }
         this.renderContainer = this.renderContainer.bind(this);
-        // helpers.getWeather().then((response) => {
-        //     // this.setState({weather: response})
-        //     console.log(response);
-        // })
-
+        // get weather data and set it to weather state
+        helpers.getWeather().then((response) => {
+            this.setState({ weather: response})
+        })
     }
 
     // container for when water data is sent down as props
     renderContainer(){
         const location = this.props.locationData;
         const waterData = this.props.waterData;
+
         return(
             <div>
                 <u>Results</u>
                 <p>{location.name}</p>
                 <p>{location.address}</p>
                 <p>{location.info}</p>
-                <p>{waterData.waterLevel} ft</p>
-                <p>{waterData.discharge} ft3/s</p>
                 <div className="row">
                     <Gauge value={waterData.waterLevel}
                            width={200} height={160}
