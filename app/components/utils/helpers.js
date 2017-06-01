@@ -1,4 +1,5 @@
 import axios from "axios";
+import weather from 'weather-js';
 
 const helper = {
 
@@ -64,6 +65,16 @@ const helper = {
         }
         // return new waterData obj to function to be used in Search component
         return waterData;
+    },
+
+    getWeather(){
+        return weather.find({
+            search:'Austin, TX', degreeType: 'F',
+            function(err, result){
+                if(err) console.log(err);
+                console.log(JSON.stringify(result, null, 2));
+            }
+        })
     }
 };
 

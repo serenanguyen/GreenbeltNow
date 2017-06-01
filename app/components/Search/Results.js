@@ -3,15 +3,24 @@ import helpers from "../utils/helpers";
 import Gauge from 'react-svg-gauge';
 
 
+
 class Results extends React.Component {
 
     constructor(props){
         super(props);
+        this.state={
+            weather: ""
+        }
+        this.renderContainer = this.renderContainer.bind(this);
+        // helpers.getWeather().then((response) => {
+        //     // this.setState({weather: response})
+        //     console.log(response);
+        // })
+
     }
 
-
-
-    render(){
+    // container for when water data is sent down as props
+    renderContainer(){
         const location = this.props.locationData;
         const waterData = this.props.waterData;
         return(
@@ -36,6 +45,19 @@ class Results extends React.Component {
                 </div>
             </div>
         )
+    }
+
+    render(){
+        // if there is no water data render an empty component
+        if(!this.props.waterData.waterLevel){
+            return(
+                    <p></p>
+            );
+            // if there is water data render the container created by renderContainer
+        } else {
+            return this.renderContainer();
+        }
+
     };
 };
 

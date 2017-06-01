@@ -15,7 +15,7 @@ class Main extends React.Component{
                     <Search />
                 </div>
                 <div className="col-md-12">
-                    <Admin />
+                    {/*<Admin />*/}
                 </div>
 
 

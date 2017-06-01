@@ -29,7 +29,8 @@
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
-    "react-svg-gauge": "^1.0.4"
+    "react-svg-gauge": "^1.0.4",
+    "weather-js": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.3.13",

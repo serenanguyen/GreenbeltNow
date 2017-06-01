@@ -7,10 +7,17 @@ class Query extends React.Component{
     constructor(props){
         super(props);
         this.state= {
-            location: ""
+            location: "",
+            allLocations: []
         };
         this.handleSelect = this.handleSelect.bind(this);
+        this.renderLocations = this.renderLocations.bind(this);
+        // get all locations from database and set it as allLocations state
+        helpers.getLocations().then((response) => {
+            this.setState({ allLocations: response.data})
+        })
     }
+
 
     handleSelect(eventKey){
         // for binding/ scope
@@ -27,23 +34,23 @@ class Query extends React.Component{
 
     }
 
+    // render menu items for each location in database
+    renderLocations(){
+        return this.state.allLocations.map((location, index) =>
+            <MenuItem key={index} eventKey={location.name}>{location.name}</MenuItem>
+        )
+    }
+
+
     render(){
         const handleSelect = this.handleSelect;
+        const renderLocations = this.renderLocations;
         return(
-            <ButtonToolbar>
+            <ButtonToolbar className="text-center">
                 <DropdownButton bsStyle="default" title="Choose a Location" id="dropdown"
                     onSelect={function(eventKey){handleSelect(eventKey)}}
                 >
-
-                     {/* should be dynamically generated based off database data */}
-                    <MenuItem eventKey="Lost Creek">Lost Creek</MenuItem>
-                    <MenuItem eventKey="Sculpture Falls">Sculpture Falls</MenuItem>
-                    <MenuItem eventKey="Twin Falls">Twin Falls</MenuItem>
-                    <MenuItem eventKey="360 Loop">360 Loop</MenuItem>
-                    <MenuItem eventKey="Gus Fruh">Gus Fruh</MenuItem>
-                    <MenuItem eventKey="Spyglass">Spyglass</MenuItem>
-                    <MenuItem eventKey="Campbell's Hole">Campbell's Hole</MenuItem>
-                    <MenuItem eventKey="Barton Creek Above Barton Springs Pool">Barton Creek Above Barton Springs Pool</MenuItem>
+                    {renderLocations()}
                 </DropdownButton>
             </ButtonToolbar>
         )
