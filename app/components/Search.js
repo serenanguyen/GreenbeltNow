@@ -49,10 +49,10 @@ class Search extends React.Component {
                 {/* sending setLocation fnc to query component as updateSearch */}
                 <Query updateSearch={this.setLocation} />
                 {/* sending location data to results component */}
-                <Results
-                    locationData={this.state.query}
-                    waterData={this.state.waterData}
+                <Results locationData={this.state.query}
+                         waterData={this.state.waterData}
                 />
+
             </div>
         );
     }

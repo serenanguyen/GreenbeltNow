@@ -12,6 +12,7 @@ body {
     text-align: center;
 }
 
+
 .location {
     display:flex;
     justify-content: center;
@@ -72,5 +73,6 @@ h2 {
 
 .fadeInUp {
     animation-name: fadeInUp;
-    animation-duration: .5s;
+    animation-duration: 1s;
 }
+

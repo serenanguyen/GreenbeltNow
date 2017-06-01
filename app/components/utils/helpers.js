@@ -44,7 +44,10 @@ const helper = {
         const resultID = response[0].sourceInfo.siteCode[0].value;
         waterData = {
             discharge: "",
-            waterLevel: ""
+            waterLevel: "",
+            flowCondition: "",
+            levelCondition: "",
+            overallCondition: ""
         };
         if(resultID === locationID){
             response.map(function(data, index){
@@ -54,13 +57,29 @@ const helper = {
                 if(dataType.includes('Discharge')){
                     // change the object prop to this value
                     waterData.discharge = value;
+                    if(value < 5){
+                        waterData.flowCondition = "Water flow is too low!";
+                    } else {
+                        waterData.flowCondition = "Water flow is fine!";
+                    }
                 // if the data type is water height
                 } else if(dataType.includes('height')){
                     // change the prop to this value
                     waterData.waterLevel = value;
+                    if(value < 5){
+                        waterData.levelCondition = "Water level is too low!";
+                    } else {
+                        waterData.levelCondition = "Water level is fine!";
+                    }
                 }
             })
+            if(waterData.discharge > 5 && waterData.waterLevel > 5){
+                waterData.overallCondition = "Go swimming!";
+            } else {
+                waterData.overallCondition = "Try Barton Springs Pool or Deep Eddy Pool instead!";
+            }
         }
+
         // return new waterData obj to function to be used in Search component
         return waterData;
     },
