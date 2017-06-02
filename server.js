@@ -25,9 +25,9 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-mongoose.connect("mongodb://localhost/project3");
+mongoose.connect("mongodb://heroku_h6blj5ts:gitkr20ljusnpr1tgpgssbt95t@ds161021.mlab.com:61021/heroku_h6blj5ts");
 var db = mongoose.connection;
-// mongodb://heroku_h6blj5ts:gitkr20ljusnpr1tgpgssbt95t@ds161021.mlab.com:61021/heroku_h6blj5ts
+//
 
 db.on("error", function(err){
     console.log("Mongoose Error: ", err);
