@@ -1,7 +1,7 @@
 import React from "react";
 import helpers from "../utils/helpers";
 
-import Gauges from "./Gauges";
+import Gauges from "./Gauge";
 
 class Results extends React.Component {
 
