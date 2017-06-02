@@ -27,6 +27,7 @@ app.use(express.static("./public"));
 
 mongoose.connect("mongodb://localhost/project3");
 var db = mongoose.connection;
+// mongodb://heroku_h6blj5ts:gitkr20ljusnpr1tgpgssbt95t@ds161021.mlab.com:61021/heroku_h6blj5ts
 
 db.on("error", function(err){
     console.log("Mongoose Error: ", err);
