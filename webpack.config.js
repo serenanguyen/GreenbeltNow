@@ -22,6 +22,10 @@ module.exports = {
                     // These are the specific transformations we'll be using.
                     presets: ["react", "es2015"]
                 }
+            },
+            {
+                test: /\.(png|jpg)$/,
+                loader: 'url?limit=25000'
             }
         ]
     },

@@ -16,7 +16,7 @@ class Weather extends React.Component {
      render(){
          const weather = this.state.weather;
          return(
-             <div>
+             <div className="fadeInDown">
                  <h2>Current Weather in Austin, TX</h2>
                  <p>{weather.temperature} F</p>
                  <p>{weather.condition}
