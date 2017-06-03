@@ -27,7 +27,7 @@ class Results extends React.Component {
             <div className="results fadeInUp">
                 <h2>{location.name}</h2>
                 <p>{location.address}</p>
-                <p>{location.info}</p>
+                <p className="info">{location.info}</p>
                 <Gauges waterData={this.props.waterData} />
             </div>
         )

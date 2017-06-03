@@ -39,6 +39,10 @@ body {
     flex-direction: column;
 }
 
+.info {
+    width: 400px;
+}
+
 h1 {
     margin-bottom: 0;
     font-family: 'Amatic SC', cursive;
