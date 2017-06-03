@@ -9,13 +9,10 @@ class Main extends React.Component{
     render(){
         return(
             <div className="rowContainer">
-
+                <Header />
                 <div className="flexcontainer">
                     <Weather />
                     <Search />
-                </div>
-                <div>
-                    <Header />
                 </div>
             </div>
         )

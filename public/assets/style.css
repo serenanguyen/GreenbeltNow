@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-right: 20px;
+    margin-left: 20px;
     flex-wrap: wrap;
 }
 
@@ -37,6 +37,13 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+h1 {
+    margin-bottom: 0;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    color: #055A5B;
 }
 
 h2 {
@@ -90,12 +97,16 @@ h2 {
     animation-duration: 1s;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 890px){
     .rowContainer{
         display: flex;
-        align-items: center;
         justify-content: center;
         text-align: center;
         flex-wrap: wrap;
+    }
+
+    .flexcontainer {
+        height: auto;
+        margin: 0;
     }
 }
