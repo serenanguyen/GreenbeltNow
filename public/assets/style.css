@@ -12,6 +12,7 @@ body {
     justify-content: center;
     text-align: center;
     margin-right: 20px;
+    flex-wrap: wrap;
 }
 
 .rowContainer {
@@ -21,6 +22,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    flex-wrap: wrap;
 }
 
 
@@ -53,6 +55,7 @@ h2 {
 .btn-default:hover {
     background-color: #B9E4D0;
 }
+
 
 @keyframes fadeInDown {
     from{
@@ -87,3 +90,12 @@ h2 {
     animation-duration: 1s;
 }
 
+@media only screen and (max-width: 768px){
+    .rowContainer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+}
