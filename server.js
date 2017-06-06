@@ -52,18 +52,7 @@ app.get("/api/locations", function(req, res){
         }
     });
 });
-// posting new locations from admin component
-app.post("/api/locations", function(req, res){
-    let newLocation = new Location(req.body);
-    newLocation.save(function(err,doc){
-        console.log("doc: ", doc);
-        if(err){
-            console.log(err);
-        } else {
-            res.send(doc);
-        }
-    });
-});
+
 // grabbing matching location id
 app.get("/api/result", function(req, res){
     Location.findOne(req.query).exec(function(err,doc){
@@ -85,6 +74,19 @@ app.get("/api/weather", function(req,res){
             }
         });
 })
+
+// posting new locations from admin component
+app.post("/api/locations", function(req, res){
+    let newLocation = new Location(req.body);
+    newLocation.save(function(err,doc){
+        console.log("doc: ", doc);
+        if(err){
+            console.log(err);
+        } else {
+            res.send(doc);
+        }
+    });
+});
 
 // listener
 app.listen(PORT, function(){

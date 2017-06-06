@@ -11,3 +11,10 @@
 - CSS animations 
 - Bootstrap, Flexbox, Adobe Illustrator
 - react-svg-gauge plugin
+
+### API calls
+- Client-side 
+![alt text](https://ibb.co/jiNw7a)
+- Server-side 
+![alt text](https://ibb.co/bv050v)
+
