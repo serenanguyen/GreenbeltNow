@@ -14,7 +14,7 @@
 
 ### API calls
 - Client-side 
-![alt text](https://ibb.co/jiNw7a)
+![alt text](https://image.ibb.co/ec2JLv/Screen_Shot_2017_06_06_at_1_54_38_PM.png)
 - Server-side 
-![alt text](https://ibb.co/bv050v)
+![alt text](https://image.ibb.co/e6aG7a/Screen_Shot_2017_06_06_at_1_53_48_PM.png)
 
