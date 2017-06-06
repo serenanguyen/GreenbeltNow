@@ -24,7 +24,7 @@ class Gauges extends React.Component {
                     <Gauge value={waterData.discharge}
                            width={200} height={160}
                            label="Water Flow (ft3/s)"
-                           max={20}
+                           max={45}
                            color={"#F7D385"}
                            topLabelStyle={{fontSize:'25px',fontFamily: 'Amatic SC',fontWeight: '700', color:'#055A5B'}}
                            valueLabelStyle={{fontFamily: 'Raleway'}}
