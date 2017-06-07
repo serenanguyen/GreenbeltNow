@@ -66,17 +66,21 @@ const helper = {
                 } else if(dataType.includes('height')){
                     // change the prop to this value
                     waterData.waterLevel = value;
-                    if(value < 5){
+                    if(value < 2){
                         waterData.levelCondition = "Water level is too low!";
+                    } else if (2 < value < 5) {
+                        waterData.levelCondition = "Water level is slightly low!";
                     } else {
-                        waterData.levelCondition = "Water level is fine!";
+                        waterData.levelCondition = "Water level is great!";
                     }
                 }
             })
-            if(waterData.discharge > 5 && waterData.waterLevel > 5){
-                waterData.overallCondition = "Go swimming!";
+            if(waterData.discharge > 5 && ( 2 < waterData.waterLevel < 5)){
+                waterData.overallCondition = "Water level is a little low, swim with caution!";
+            } else if (waterData.discharge > 5 && waterData.waterLevel > 5){
+                waterData.overallCondition = "Water conditions look great! Have fun swimming!";
             } else {
-                waterData.overallCondition = "Try Barton Springs Pool or Deep Eddy Pool instead!";
+                waterData.overallCondition = "Conditions aren't optimal. Try Barton Springs Pool or Deep Eddy Pool instead!";
             }
         }
 
