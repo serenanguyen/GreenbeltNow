@@ -14,6 +14,7 @@ class Main extends React.Component{
                     <Weather />
                     <Search />
                 </div>
+
             </div>
         )
     }
