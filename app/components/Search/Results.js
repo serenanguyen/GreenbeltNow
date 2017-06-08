@@ -24,7 +24,7 @@ class Results extends React.Component {
 
 
         return(
-            <div className="results fadeInUp">
+            <div className="results fadeInUp text-center">
                 <h2>{location.name}</h2>
                 <p>{location.address}</p>
                 <p className="info">{location.info}</p>
