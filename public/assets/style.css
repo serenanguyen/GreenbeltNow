@@ -41,10 +41,7 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.info {
-    width: 400px;
+    width: 540px;
 }
 
 h1 {
