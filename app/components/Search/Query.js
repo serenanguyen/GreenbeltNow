@@ -14,7 +14,7 @@ class Query extends React.Component{
         this.renderLocations = this.renderLocations.bind(this);
         // get all locations from database and set it as allLocations state
         helpers.getLocations().then((response) => {
-            this.setState({ allLocations: response.data})
+            this.setState({allLocations: response.data})
         })
     }
 

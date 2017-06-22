@@ -52,9 +52,6 @@ class Search extends React.Component {
                 <Results locationData={this.state.query}
                          waterData={this.state.waterData}
                 />
-                <br />
-                <br />
-                <div className="mobileFooter">Copyright &copy; 2017 <a href="https://serenanguyen.github.io/" target="_blank">Serena Nguyen</a></div>
             </div>
         );
     }
