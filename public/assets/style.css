@@ -84,6 +84,12 @@ a {
     background-color: #B9E4D0;
 }
 
+area:focus{
+    border: none;
+    outline-style: none;
+    -moz-outline-style:none;
+}
+
 
 @keyframes fadeInDown {
     from{
@@ -118,27 +124,8 @@ a {
     animation-duration: 1s;
 }
 
-@media only screen and (max-width: 890px){
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
     .rowContainer{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        flex-wrap: wrap;
-        align-items: stretch;
-        height: auto;
-    }
-
-    .flexcontainer {
-        height: auto;
-        margin: 0;
-        align-items: stretch;
-    }
-
-    .footer {
-        display: none;
-    }
-
-    .mobileFooter {
-        display: inline;
+        flex-direction: column;
     }
 }
