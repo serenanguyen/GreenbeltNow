@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var connectionString = require("./connectionString");
 
 // weather
 var weather = require('weather-js');
@@ -25,7 +26,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-mongoose.connect("mongodb://heroku_h6blj5ts:gitkr20ljusnpr1tgpgssbt95t@ds161021.mlab.com:61021/heroku_h6blj5ts");
+mongoose.connect(connectionString);
 var db = mongoose.connection;
 //
 
