@@ -21,8 +21,6 @@ class Results extends React.Component {
     // container for when water data is sent down as props
     renderContainer(){
         const location = this.props.locationData;
-
-
         return(
             <div className="results fadeInUp text-center">
                 <h2>{location.name}</h2>

@@ -10,6 +10,13 @@ import Weather from "./Weather";
 // import helpers for making API calls
 import helpers from "./utils/helpers";
 
+//mobx
+import { observable } from 'mobx';
+
+var appState = observable({
+    isLoading: false
+})
+
 class Main extends React.Component{
 
     constructor(props){

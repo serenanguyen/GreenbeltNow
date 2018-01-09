@@ -2,6 +2,9 @@ import React from "react";
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 import helpers from "../utils/helpers";
 
+import { observer } from 'mobx-react';
+
+@observer
 class Query extends React.Component{
 
     constructor(props){
@@ -32,6 +35,7 @@ class Query extends React.Component{
             updateSearch(response.data)
         });
 
+        this.props.appState.isLoading = true;
     }
 
     // render menu items for each location in database

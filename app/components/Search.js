@@ -43,7 +43,7 @@ class Search extends React.Component {
 
     }
 
-    render(){
+    render(){     
         return(
             <div>
                 {/* sending setLocation fnc to query component as updateSearch */}

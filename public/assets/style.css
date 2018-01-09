@@ -12,10 +12,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     text-align: center;
     margin-left: 20px;
     flex-wrap: wrap;
+    width: 570px;
+    height: 600px;
 }
 
 .rowContainer {
@@ -26,7 +27,7 @@ body {
     align-items: center;
     text-align: center;
     flex-wrap: wrap;
-
+    margin-bottom: 10rem;
 }
 
 
