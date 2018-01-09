@@ -3,6 +3,10 @@ import helpers from "../utils/helpers";
 
 import Gauges from "./Gauge";
 
+import { observer, inject } from 'mobx-react';
+
+@inject('AppState')
+@observer
 class Results extends React.Component {
 
     constructor(props){

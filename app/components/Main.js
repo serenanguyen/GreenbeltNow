@@ -10,13 +10,10 @@ import Weather from "./Weather";
 // import helpers for making API calls
 import helpers from "./utils/helpers";
 
-//mobx
-import { observable } from 'mobx';
+import { inject, observer } from 'mobx-react';
 
-var appState = observable({
-    isLoading: false
-})
-
+@inject('AppState')
+@observer
 class Main extends React.Component{
 
     constructor(props){
@@ -45,6 +42,7 @@ class Main extends React.Component{
                 this.setState({ results: response.data.value.timeSeries })
             })
             .then(() => {
+                this.props.AppState.isLoading = false;
                 this.setState({
                     waterData: helpers.getWaterData(this.state.query.locationID, this.state.results)
                 })
@@ -53,6 +51,7 @@ class Main extends React.Component{
     }
 
     render(){
+        console.log(this.props.AppState.isLoading);
         return(
             <div className="rowContainer">
                 <Header updateSearch={this.setLocation}/>

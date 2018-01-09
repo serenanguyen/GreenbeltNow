@@ -2,8 +2,9 @@ import React from "react";
 import { ButtonToolbar, DropdownButton, MenuItem } from 'react-bootstrap';
 import helpers from "../utils/helpers";
 
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
+@inject('AppState')
 @observer
 class Query extends React.Component{
 
@@ -34,8 +35,7 @@ class Query extends React.Component{
             // setLocation is expecting newLocation so send response.data
             updateSearch(response.data)
         });
-
-        this.props.appState.isLoading = true;
+        this.props.AppState.isLoading = true;
     }
 
     // render menu items for each location in database
