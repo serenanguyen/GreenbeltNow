@@ -24,6 +24,7 @@ class Query extends React.Component{
 
 
     handleSelect(eventKey){
+        this.props.AppState.updateSearch(eventKey);
         // for binding/ scope
         const updateSearch = this.props.updateSearch;
         // set state to location name which is eventKey
