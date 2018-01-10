@@ -51,7 +51,6 @@ class Main extends React.Component{
     }
 
     render(){
-        console.log(this.props.AppState.isLoading);
         return(
             <div className="rowContainer">
                 <Header updateSearch={this.setLocation}/>
