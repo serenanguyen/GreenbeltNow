@@ -36,17 +36,22 @@ class Results extends React.Component {
     }
 
     render(){
-        // if there is no water data render an empty component
-        if(!this.props.waterData.waterLevel && this.props.AppState.isLoading){
+        // if isLoading render loading indicator
+        if(this.props.AppState.isLoading){
             return(
-                    <p>Loading</p>
+                <div className="loading">
+                    <div className="droplet"></div>
+                    <div className="droplet"></div>
+                    <div className="droplet"></div>
+                </div>    
             );
             // if there is water data render the container created by renderContainer
         } else if(this.props.waterData.waterLevel) {
             return this.renderContainer();
         } else {
+            // if there is no water data render an empty component
             return(
-                <p></p>
+                <div></div> 
             )
         }
 

@@ -91,6 +91,37 @@ area:focus{
     -moz-outline-style:none;
 }
 
+.loading {
+    display:flex;
+    height: 300px;
+    align-items: center;
+}
+
+.droplet {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-image: url('https://www.shareicon.net/data/128x128/2016/04/20/752829_drop_512x512.png');
+}
+
+.droplet:nth-child(1) {
+  /* name, duration, timing function, delay, count */
+  animation: loading .8s linear .1s infinite;
+}
+.droplet:nth-child(2) {
+  animation: loading .8s linear .2s infinite;
+}
+.droplet:nth-child(3) {
+  animation: loading .8s linear .3s infinite;
+}
+
+@keyframes loading {
+    0 {transform: translate(0,0);}
+    /* halfway through animation translate 15px along y axis*/
+    50% {transform: translate(0,15px);}
+    /* translate back to origin */
+    100% {transform: translate(0,0);}
+}
 
 @keyframes fadeInDown {
     from{
