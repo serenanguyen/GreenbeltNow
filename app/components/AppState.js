@@ -16,6 +16,10 @@ class AppState {
                 .then((response)=>{
                     this.results = response.data.value.timeSeries;
                 })
+                .then(()=> {
+                    this.waterData = helpers.getWaterData(this.query, this.results);
+                    this.isLoading = false;
+                })
         })
     } 
 }
