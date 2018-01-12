@@ -8,6 +8,7 @@ class AppState {
     @observable location = {};
     @observable results = {};
     @observable waterData = {};
+    @observable weather = {};
 
     @action updateSearch(newLocation) {
         helpers.getLocationObj(newLocation).then((response)=>{
