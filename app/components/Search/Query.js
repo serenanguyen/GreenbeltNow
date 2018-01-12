@@ -21,7 +21,6 @@ class Query extends React.Component{
         })
     }
 
-
     handleSelect(eventKey){
         this.props.AppState.isLoading = true;
         this.props.AppState.updateSearch(eventKey);
@@ -33,7 +32,6 @@ class Query extends React.Component{
             <MenuItem key={index} eventKey={location.name}>{location.name}</MenuItem>
         )
     }
-
 
     render(){
         const handleSelect = this.handleSelect;
