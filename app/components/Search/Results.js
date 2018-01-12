@@ -24,7 +24,7 @@ class Results extends React.Component {
 
     // container for when water data is sent down as props
     renderContainer(){
-        const location = this.props.locationData;
+        const location = this.props.AppState.location;
         return(
             <div className="results fadeInUp text-center">
                 <h2>{location.name}</h2>
@@ -46,7 +46,7 @@ class Results extends React.Component {
                 </div>    
             );
             // if there is water data render the container created by renderContainer
-        } else if(this.props.waterData.waterLevel) {
+        } else if(this.props.AppState.waterData.waterLevel) {
             return this.renderContainer();
         } else {
             // if there is no water data render an empty component

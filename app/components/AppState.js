@@ -5,19 +5,20 @@ import { observable, action } from 'mobx';
 
 class AppState {
     @observable isLoading = false;
-    @observable query = {};
+    @observable location = {};
     @observable results = {};
     @observable waterData = {};
 
     @action updateSearch(newLocation) {
         helpers.getLocationObj(newLocation).then((response)=>{
-            this.query = response.data.locationID;
-            helpers.runQuery(this.query)
+            var locationID = response.data.locationID;
+            this.location = response.data;
+            helpers.runQuery(locationID)
                 .then((response)=>{
                     this.results = response.data.value.timeSeries;
                 })
                 .then(()=> {
-                    this.waterData = helpers.getWaterData(this.query, this.results);
+                    this.waterData = helpers.getWaterData(this.location.locationID, this.results);
                     this.isLoading = false;
                 })
         })

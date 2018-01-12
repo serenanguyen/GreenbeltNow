@@ -57,9 +57,8 @@ class Main extends React.Component{
                 <div className="flexcontainer">
                     <Weather />
                     {/*<Search />*/}
-                    <Query updateSearch={this.setLocation}/>
-                    <Results locationData={this.state.query}
-                             waterData={this.state.waterData} />
+                    <Query />
+                    <Results />
                 </div>
 
             </div>

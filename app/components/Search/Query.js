@@ -11,7 +11,6 @@ class Query extends React.Component{
     constructor(props){
         super(props);
         this.state= {
-            location: "",
             allLocations: []
         };
         this.handleSelect = this.handleSelect.bind(this);
@@ -24,19 +23,8 @@ class Query extends React.Component{
 
 
     handleSelect(eventKey){
-        this.props.AppState.updateSearch(eventKey);
-        // for binding/ scope
-        const updateSearch = this.props.updateSearch;
-        // set state to location name which is eventKey
-        this.setState({
-            location: eventKey
-        });
-        // get location object using the eventKey
-        helpers.getLocationObj(eventKey).then(function(response){
-            // setLocation is expecting newLocation so send response.data
-            updateSearch(response.data)
-        });
         this.props.AppState.isLoading = true;
+        this.props.AppState.updateSearch(eventKey);
     }
 
     // render menu items for each location in database
