@@ -9,6 +9,19 @@ import { observer, inject } from 'mobx-react';
 @observer
 class Results extends React.Component {
 
+    constructor(props){
+        super(props);
+        // state for weather data
+        this.state = {
+            weather: {}
+        }
+        this.renderContainer = this.renderContainer.bind(this);
+        // get weather data and set it to weather state
+        helpers.getWeather().then((response) => {
+            this.setState({ weather: response})
+        })
+    }
+
     // container for when water data is sent down as props
     renderContainer(){
         const location = this.props.AppState.location;

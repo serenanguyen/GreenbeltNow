@@ -6,10 +6,16 @@ import { inject, observer } from 'mobx-react';
 @inject('AppState')
 @observer
 class Weather extends React.Component {
-     render(){
+    constructor(props) {
+        super(props);
+        this.state = {
+            weather: {}
+        }
         helpers.getWeather().then((response) => {
              this.props.AppState.weather = response;
          });
+    }
+     render(){
          const weather = this.props.AppState.weather;
          return(
              <div className="fadeInDown">
