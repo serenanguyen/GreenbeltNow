@@ -6,15 +6,12 @@ import { inject, observer } from 'mobx-react';
 @inject('AppState')
 @observer
 class Weather extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            weather: {}
-        }
+    componentDidMount(){
         helpers.getWeather().then((response) => {
              this.props.AppState.weather = response;
-         });
+        });
     }
+
      render(){
          const weather = this.props.AppState.weather;
          return(
