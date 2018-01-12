@@ -1,7 +1,10 @@
 import React from "react";
 
 import helpers from "./utils/helpers";
+import { observer, inject } from 'mobx-react';
 
+@inject('AppState')
+@observer
 class Header extends React.Component {
 
     constructor(props){
@@ -14,14 +17,8 @@ class Header extends React.Component {
 
     handleClick(e){
         e.preventDefault();
-        const updateSearch = this.props.updateSearch;
-        this.setState({
-            location: e.target.alt
-        });
-        helpers.getLocationObj(e.target.alt).then(function(response){
-            updateSearch(response.data)
-        });
-
+        this.props.AppState.isLoading = true;
+        this.props.AppState.updateSearch(e.target.alt);
     }
 
     render(){
