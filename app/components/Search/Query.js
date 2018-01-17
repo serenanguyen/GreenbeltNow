@@ -33,7 +33,7 @@ class Query extends React.Component{
         return(
             <ButtonToolbar className="location fadeInDown">
                 <DropdownButton className="header" bsStyle="default" title="Choose a Location" id="dropdown"
-                    onSelect={function(eventKey){handleSelect(eventKey)}}
+                    onSelect={(eventKey)=>{handleSelect(eventKey)}}
                 >
                     {renderLocations()}
                 </DropdownButton>

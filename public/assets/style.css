@@ -156,8 +156,8 @@ area:focus{
     animation-duration: 1s;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+@media (max-width : 1225px){
     .rowContainer{
-        flex-direction: column;
+        height: 1200px;
     }
 }

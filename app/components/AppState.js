@@ -18,6 +18,7 @@ class AppState {
     }
 
     @action updateSearch(newLocation) {
+        this.isLoading = true;
         helpers.getLocationObj(newLocation).then((response)=>{
             var locationID = response.data.locationID;
             this.location = response.data;
