@@ -9,15 +9,11 @@ class Header extends React.Component {
 
     constructor(props){
         super(props);
-        this.state={
-            location:""
-        }
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(e){
         e.preventDefault();
-        this.props.AppState.isLoading = true;
         this.props.AppState.updateSearch(e.target.alt);
     }
 
