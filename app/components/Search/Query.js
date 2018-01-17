@@ -10,13 +10,7 @@ class Query extends React.Component{
 
     constructor(props){
         super(props);
-        this.handleSelect = this.handleSelect.bind(this);
         this.renderLocations = this.renderLocations.bind(this);
-    }
-
-    handleSelect(eventKey){
-        this.props.AppState.isLoading = true;
-        this.props.AppState.updateSearch(eventKey);
     }
 
     // render menu items for each location in database
@@ -28,12 +22,11 @@ class Query extends React.Component{
     }
 
     render(){
-        const handleSelect = this.handleSelect;
         const renderLocations = this.renderLocations;
         return(
             <ButtonToolbar className="location fadeInDown">
                 <DropdownButton className="header" bsStyle="default" title="Choose a Location" id="dropdown"
-                    onSelect={(eventKey)=>{handleSelect(eventKey)}}
+                    onSelect={(eventKey)=>{this.props.AppState.updateSearch(eventKey)}}
                 >
                     {renderLocations()}
                 </DropdownButton>

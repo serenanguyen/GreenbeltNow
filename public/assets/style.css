@@ -158,6 +158,7 @@ area:focus{
 
 @media (max-width : 1225px){
     .rowContainer{
+        /* fix height to push down footer */
         height: 1200px;
     }
 }
