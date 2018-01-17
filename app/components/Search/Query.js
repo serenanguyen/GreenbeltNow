@@ -10,15 +10,8 @@ class Query extends React.Component{
 
     constructor(props){
         super(props);
-        this.state= {
-            allLocations: []
-        };
         this.handleSelect = this.handleSelect.bind(this);
         this.renderLocations = this.renderLocations.bind(this);
-        // get all locations from database and set it as allLocations state
-        helpers.getLocations().then((response) => {
-            this.setState({allLocations: response.data})
-        })
     }
 
     handleSelect(eventKey){
@@ -28,7 +21,8 @@ class Query extends React.Component{
 
     // render menu items for each location in database
     renderLocations(){
-        return this.state.allLocations.map((location, index) =>
+        const allLocations = this.props.AppState.allLocations;
+        return allLocations.map((location, index) =>
             <MenuItem key={index} eventKey={location.name}>{location.name}</MenuItem>
         )
     }

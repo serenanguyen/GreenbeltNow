@@ -9,6 +9,13 @@ class AppState {
     @observable results = {};
     @observable waterData = {};
     @observable weather = {};
+    @observable allLocations = [];
+
+    constructor() {
+        helpers.getLocations().then((response) => {
+                this.allLocations = response.data
+            })   
+    }
 
     @action updateSearch(newLocation) {
         helpers.getLocationObj(newLocation).then((response)=>{
