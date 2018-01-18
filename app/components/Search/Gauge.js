@@ -1,14 +1,13 @@
 import React from "react";
-import helpers from "../utils/helpers";
 import Gauge from "react-svg-gauge";
 
-class Gauges extends React.Component {
-    constructor(props){
-        super(props);
-    }
+import { observer, inject } from 'mobx-react';
 
+@inject('AppState')
+@observer
+class Gauges extends React.Component {
     render(){
-        const waterData = this.props.waterData;
+        const waterData = this.props.AppState.waterData;
         return(
             <div>
                 <div className="row">

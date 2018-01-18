@@ -1,3 +1,4 @@
 node_modules
 .idea
 connectionString.jsgit
+npm-debug.log

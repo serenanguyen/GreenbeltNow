@@ -1,20 +1,19 @@
 import React from "react";
 
 import helpers from "./utils/helpers";
+import { inject, observer } from 'mobx-react';
 
+@inject('AppState')
+@observer
 class Weather extends React.Component {
-     constructor(props){
-         super(props);
-         this.state = {
-             weather: {}
-         }
-         helpers.getWeather().then((response) => {
-             this.setState({ weather: response })
-         });
-     }
+    componentDidMount(){
+        helpers.getWeather().then((response) => {
+             this.props.AppState.weather = response;
+        });
+    }
 
      render(){
-         const weather = this.state.weather;
+         const weather = this.props.AppState.weather;
          return(
              <div className="fadeInDown">
                  <h2>Current Weather in Austin, TX</h2>

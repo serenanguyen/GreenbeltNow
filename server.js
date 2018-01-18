@@ -26,7 +26,9 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-mongoose.connect(connectionString);
+mongoose.connect(connectionString, {
+    useMongoClient: true
+});
 var db = mongoose.connection;
 //
 
