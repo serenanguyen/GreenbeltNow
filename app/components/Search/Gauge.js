@@ -6,10 +6,6 @@ import { observer, inject } from 'mobx-react';
 @inject('AppState')
 @observer
 class Gauges extends React.Component {
-    constructor(props){
-        super(props);
-    }
-
     render(){
         const waterData = this.props.AppState.waterData;
         return(
