@@ -6,6 +6,55 @@ import { observer, inject } from 'mobx-react';
 @inject('AppState')
 @observer
 class Header extends React.Component {
+        constructor(props){
+        // allows access to parent's properties as props
+        super(props);
+        this.handleSignIn = this.handleSignIn.bind(this);
+        this.handleSignOut = this.handleSignOut.bind(this);
+        this.handleRegister = this.handleRegister.bind(this);
+    }
+      
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(function(user) {
+    console.log('User state change detected from the Background script of the Chrome Extension:', user);
+  });
+    console.log(firebase.auth());
+  }
+   handleRegister(event){
+       event.preventDefault();
+       console.log(this.email.value, this.password.value);
+       var email = this.email.value;
+       var password = this.password.value;
+
+       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            if(error) {console.log(error);}       
+        });
+
+    }
+
+    handleSignIn(event) {
+        event.preventDefault();
+        var email = this.email.value;
+        var password = this.password.value;
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            console.log(error);
+        });
+    }
+
+    handleSignOut(event){
+        event.preventDefault();
+        console.log('log out');
+        firebase.auth().signOut();
+    }
+
     render(){
         return(
             <div className="fadeInDown">
@@ -23,6 +72,13 @@ class Header extends React.Component {
                 </map>
                 <h2>Can I swim at the Greenbelt today</h2>
                 <p>Select a Greenbelt access point on the map or dropdown menu to begin your search.</p>
+                <form>
+                    <input id="email" type="text" placeholder="Email..." ref={node => {this.email = node;}} />  
+                    <input id="password" type="password" placeholder="Password..." ref={node => {this.password = node;}} />
+                    <button id="sign-in" onClick={this.handleSignIn}>Sign In</button>
+                    <button id="register" onClick={this.handleRegister}>Register</button>
+                    <button id="sign-out" onClick={this.handleSignOut}>Sign Out</button>
+                </form>
             </div>
         )
     }

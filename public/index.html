@@ -20,7 +20,20 @@
 <!-- This is where React will deploy the contents it generates -->
 <div id="app"></div>
 <div class="footer"><a href="https://serenanguyen.github.io/" target="_blank">Serena Nguyen</a></div>
-
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase-auth.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB-zWNiffRPHPQzJX9-BqLFh5gH-r0xKW4",
+    authDomain: "test-39cc6.firebaseapp.com",
+    databaseURL: "https://test-39cc6.firebaseio.com",
+    projectId: "test-39cc6",
+    storageBucket: "",
+    messagingSenderId: "443654230533"
+  };
+  firebase.initializeApp(config);
+</script>
 <!-- All of our JS code will be transpiled into this bundle.js file -->
 <script src="bundle.js"></script>
 <script>
