@@ -12,13 +12,13 @@ class Header extends React.Component {
         this.handleSignIn = this.handleSignIn.bind(this);
         this.handleSignOut = this.handleSignOut.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
+        this.handleReset = this.handleReset.bind(this);
     }
       
   componentDidMount() {
     firebase.auth().onAuthStateChanged(function(user) {
     console.log('User state change detected from the Background script of the Chrome Extension:', user);
   });
-    console.log(firebase.auth());
   }
    handleRegister(event){
        event.preventDefault();
@@ -31,7 +31,18 @@ class Header extends React.Component {
             var errorCode = error.code;
             var errorMessage = error.message;
             // ...
-            if(error) {console.log(error);}       
+            console.log(error);     
+        }).then(()=> {
+            var settings = {
+                url: 'http://www.greenbeltnow.com/'
+            }
+            firebase.auth().currentUser.sendEmailVerification(settings)
+                .then(function() {
+                    console.log('sent');
+                })
+                .catch(function(error) {
+                    // Error occurred. Inspect error.code.
+                });
         });
 
     }
@@ -53,6 +64,16 @@ class Header extends React.Component {
         event.preventDefault();
         console.log('log out');
         firebase.auth().signOut();
+    }
+
+    handleReset(event) {
+        event.preventDefault();
+        var email = this.email.value;
+        firebase.auth().sendPasswordResetEmail(email).catch((error) => {
+            console.log(error);
+        }).then(()=> {
+            console.log('sent');
+        })
     }
 
     render(){
@@ -78,6 +99,7 @@ class Header extends React.Component {
                     <button id="sign-in" onClick={this.handleSignIn}>Sign In</button>
                     <button id="register" onClick={this.handleRegister}>Register</button>
                     <button id="sign-out" onClick={this.handleSignOut}>Sign Out</button>
+                    <button id="reset" onClick={this.handleReset}>Reset</button>
                 </form>
             </div>
         )
