@@ -1,4 +1,4 @@
 node_modules
 .idea
-connectionString.jsgit
+connectionString.js
 npm-debug.log
