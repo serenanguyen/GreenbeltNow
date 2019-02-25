@@ -15,9 +15,10 @@ class Query extends React.Component{
 
     // render menu items for each location in database
     renderLocations(){
-        const allLocations = this.props.AppState.allLocations;
-        return allLocations.map((location, index) =>
-            <MenuItem key={index} eventKey={location.name}>{location.name}</MenuItem>
+        const locations = this.props.AppState.locations;
+        const locationKeys = Object.keys(locations);
+        return locationKeys.map((location, index) =>
+            <MenuItem key={index} eventKey={location}>{locations[location].name}</MenuItem>
         )
     }
 

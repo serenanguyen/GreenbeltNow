@@ -2,14 +2,9 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
-var mongoose = require("mongoose");
-var connectionString = require("./connectionString");
 
 // weather
 var weather = require('weather-js');
-
-// Location model
-var Location = require("./models/location");
 
 // Create new express app
 var app = express();
@@ -25,20 +20,6 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
-
-mongoose.connect(connectionString, {
-    useMongoClient: true
-});
-var db = mongoose.connection;
-//
-
-db.on("error", function(err){
-    console.log("Mongoose Error: ", err);
-});
-
-db.once("open", function(){
-    console.log("Mongoose connection successful.");
-});
 
 //Main / route to redirect use to rendered react app
 app.get("/", function(req,res){
@@ -77,19 +58,6 @@ app.get("/api/weather", function(req,res){
             }
         });
 })
-
-// posting new locations from admin component
-// app.post("/api/locations", function(req, res){
-//     let newLocation = new Location(req.body);
-//     newLocation.save(function(err,doc){
-//         console.log("doc: ", doc);
-//         if(err){
-//             console.log(err);
-//         } else {
-//             res.send(doc);
-//         }
-//     });
-// });
 
 // listener
 app.listen(PORT, function(){

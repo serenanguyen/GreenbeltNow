@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding-bottom: 6rem;
     min-height: 100%;
-
 }
 
 .flexcontainer {
@@ -157,6 +156,11 @@ area:focus{
 }
 
 @media (max-width : 1225px){
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+    }
     .rowContainer{
         /* fix height to push down footer */
         height: 1200px;
