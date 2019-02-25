@@ -1,4 +1,4 @@
 node_modules
 .idea
-connectionString.jsgit
+tsconfig.json
 npm-debug.log
