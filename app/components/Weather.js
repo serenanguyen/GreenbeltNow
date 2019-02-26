@@ -1,29 +1,32 @@
 import React from "react";
 
 import helpers from "./utils/helpers";
-import { inject, observer } from 'mobx-react';
+import { inject, observer } from "mobx-react";
 
-@inject('AppState')
+@inject("AppState")
 @observer
 class Weather extends React.Component {
-    componentDidMount(){
-        helpers.getWeather().then((response) => {
-             this.props.AppState.weather = response;
-        });
-    }
+  componentDidMount() {
+    helpers.getWeather().then(response => {
+      this.props.AppState.weather = response;
+    });
+  }
 
-     render(){
-         const weather = this.props.AppState.weather;
-         return(
-             <div className="fadeInDown">
-                 <h2>Current Weather in Austin, TX</h2>
-                 <p>{weather.temperature} F</p>
-                 <p>{weather.condition}
-                     <span><img src={weather.image}/></span>
-                 </p>
-             </div>
-         )
-     }
-};
+  render() {
+    const weather = this.props.AppState.weather;
+    return (
+      <div className="fadeInDown">
+        <h2>Current Weather in Austin, TX</h2>
+        <p>{weather.temperature} F</p>
+        <p>
+          {weather.condition}
+          <span>
+            <img src={weather.image} />
+          </span>
+        </p>
+      </div>
+    );
+  }
+}
 
 module.exports = Weather;

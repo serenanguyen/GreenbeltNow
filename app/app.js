@@ -4,15 +4,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 import Main from "./components/Main";
-import AppState from './components/AppState';
+import AppState from "./components/AppState";
 
-import { Provider } from 'mobx-react'; 
+import { Provider } from "mobx-react";
 
-const app = document.getElementById('app');
-const stores = {AppState};
+const app = document.getElementById("app");
+const stores = { AppState };
 
 ReactDOM.render(
-    <Provider {...stores}>
-        <Main />
-    </Provider>
-, app);
+  <Provider {...stores}>
+    <Main />
+  </Provider>,
+  app
+);
