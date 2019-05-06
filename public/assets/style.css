@@ -155,7 +155,7 @@ area:focus{
     animation-duration: 1s;
 }
 
-@media (max-width : 1225px){
+@media (max-width : 768px){
     body {
         height: 100vh;
         display: flex;
