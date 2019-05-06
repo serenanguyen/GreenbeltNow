@@ -23,7 +23,7 @@ const helper = {
             levelCondition: "",
             overallCondition: ""
         };
-        if(resultID === locationID){
+              if(resultID === locationID){
             response.map(function(data, index){
                 const dataType = data.variable.variableDescription;
                 const value = data.values[0].value[0].value;
@@ -31,31 +31,33 @@ const helper = {
                 if(dataType.includes('Discharge')){
                     // change the object prop to this value
                     waterData.discharge = value;
-                    if(value < 5){
-                        waterData.flowCondition = "Water flow is too low!";
+                    if(value < 100){
+                        waterData.flowCondition = "Water flow might be too low.";
+                    } else if (value > 550) {
+                        waterData.flowCondition = "The water is moving a lil too fast, maybe take a nap instead";
                     } else {
-                        waterData.flowCondition = "Water flow is fine!";
+                      waterData.flowCondition = "Water flow is pretty good!";  
                     }
                 // if the data type is water height
                 } else if(dataType.includes('height')){
                     // change the prop to this value
                     waterData.waterLevel = value;
                     if(value < 2){
-                        waterData.levelCondition = "Water level is too low!";
-                    } else if (2 < value < 5) {
-                        waterData.levelCondition = "Water level is slightly low!";
+                        waterData.levelCondition = "Water level might be too low.";
+                    } else if (value > 7) {
+                        waterData.levelCondition = "Water level might be too high today.";
                     } else {
-                        waterData.levelCondition = "Water level is great!";
+                        waterData.levelCondition = "Water level is good!";
                     }
                 }
             })
-            if(waterData.discharge > 5 && ( 2 < waterData.waterLevel < 5)){
-                waterData.overallCondition = "Water level is a little low, swim with caution!";
-            } else if (waterData.discharge > 5 && waterData.waterLevel > 5){
-                waterData.overallCondition = "Water conditions look great! Have fun swimming!";
-            } else {
-                waterData.overallCondition = "Conditions aren't optimal. Try Barton Springs Pool or Deep Eddy Pool instead!";
-            }
+            // if(waterData.discharge > 5 && ( 2 < waterData.waterLevel < 5)){
+            //     waterData.overallCondition = "Water level is a little low, swim with caution!";
+            // } else if (waterData.discharge > 5 && waterData.waterLevel > 5){
+            //     waterData.overallCondition = "Water conditions look great! Have fun swimming!";
+            // } else {
+            //     waterData.overallCondition = "Conditions aren't optimal. Try Barton Springs Pool or Deep Eddy Pool instead!";
+            // }
         }
 
         // return new waterData obj to function to be used in Search component
