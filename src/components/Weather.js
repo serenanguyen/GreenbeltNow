@@ -8,7 +8,7 @@ export default () => {
     weather.setLang("en");
     weather.setCity("Austin");
     weather.setUnits("imperial");
-    weather.setAPPID(process.env.WEATHER_KEY);
+    weather.setAPPID("42ebbe7c726c3fc801edf7558521481b");
 
     weather.getAllWeather(function(err, res) {
       setData({
