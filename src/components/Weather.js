@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import weather from "openweather-apis";
 
-import weatherKey from "../weatherKey";
-
 export default () => {
   const [data, setData] = useState();
   // passing empty array as second arg treats this similarly to componentDidMount
@@ -10,7 +8,7 @@ export default () => {
     weather.setLang("en");
     weather.setCity("Austin");
     weather.setUnits("imperial");
-    weather.setAPPID(weatherKey);
+    weather.setAPPID(process.env.WEATHER_KEY);
 
     weather.getAllWeather(function(err, res) {
       setData({
