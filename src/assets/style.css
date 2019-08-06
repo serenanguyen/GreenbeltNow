@@ -97,6 +97,10 @@ a {
   color: var(--accent-color);
 }
 
+.responsive-view {
+  display: none;
+}
+
 /* DROPDOWN */
 
 .dropdown {
@@ -284,5 +288,13 @@ a {
 
   .results-containter {
     width: 100%;
+  }
+
+  .full-view {
+    display: none;
+  }
+
+  .responsive-view {
+    display: block;
   }
 }

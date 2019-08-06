@@ -115,8 +115,12 @@ const Map = () => {
         />
       </map>
       <h2>Can I swim at the Greenbelt today</h2>
-      <p>
+      <p className="full-view">
         Select a Greenbelt access point on the map or dropdown menu to display
+        the latest water data from the closest gauge.
+      </p>
+      <p className="responsive-view">
+        Select a Greenbelt access point from the dropdown menu to display
         the latest water data from the closest gauge.
       </p>
     </div>
