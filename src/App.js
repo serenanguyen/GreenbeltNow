@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div className="App">
       <Map />
-      <div className="query-container">
+      <div className="query-container fadeInDown">
         <Weather />
         <Dropdown />
         <Results />

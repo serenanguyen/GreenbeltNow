@@ -24,7 +24,7 @@ export default () => {
   const imgUrl = data && `http://openweathermap.org/img/wn/${data.img}@2x.png`
 
   return (
-    <div className="weather fadeInDown">
+    <div className="weather">
       <h2>Current Weather in Austin, TX</h2>
       <div className="weather-info">
         <img src={imgUrl} className="weather-icon" alt="weather-icon" />

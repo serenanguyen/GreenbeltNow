@@ -10,7 +10,7 @@ const Results = () => {
   const renderResults = () => {
     const location = results.location;
     return (
-      <div className="results">
+      <div className="results fadeInUp">
         <h2>{location.name}</h2>
         <p>{location.address}</p>
         <p>{results.gaugeReference}</p>
