@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import weather from "openweather-apis";
 
-export default () => {
+const Weather = () => {
   const [data, setData] = useState();
   // passing empty array as second arg treats this similarly to componentDidMount
   useEffect(() => {
@@ -31,3 +31,5 @@ export default () => {
     </div>
   );
 };
+
+export default Weather;

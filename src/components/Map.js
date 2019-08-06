@@ -41,7 +41,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="80,84,93,103"
+          coords="14,82,102,107"
         />
         <area
           alt="Sculpture Falls"
@@ -51,7 +51,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="149,153,164,173"
+          coords="59,177,168,151"
         />
         <area
           alt="Twin Falls"
@@ -61,7 +61,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="215,269,231,288"
+          coords="233,266,147,291"
         />
         <area
           alt="360 Loop"
@@ -71,7 +71,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="302,313,323,331"
+          coords="318,303,287,339"
         />
         <area
           alt="Gus Fruh"
@@ -81,7 +81,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="327,271,345,293"
+          coords="394,271,330,296"
         />
         <area
           alt="Spyglass"
@@ -91,7 +91,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="400,203,414,223"
+          coords="391,210,465,234" 
         />
         <area
           alt="Campbell's Hole"
@@ -101,7 +101,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="413,171,431,191"
+          coords="413,173,494,199"
         />
         <area
           alt="Above Barton Springs"
@@ -111,7 +111,7 @@ const Map = () => {
           }}
           href="#"
           shape="rect"
-          coords="512,155,525,173"
+          coords="513,156,631,195"
         />
       </map>
       <h2>Can I swim at the Greenbelt today</h2>

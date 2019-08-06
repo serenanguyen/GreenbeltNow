@@ -6,7 +6,7 @@ import helpers from "../helpers";
 
 import { ResultsContext, LocationContext, LoadingContext } from "../Store";
 
-export default () => {
+const Dropdown = () => {
   const setIsLoading = useContext(LoadingContext).setState;
   const { state: selectedLocation, setState: setLocation } = useContext(
     LocationContext
@@ -77,3 +77,5 @@ export default () => {
     </div>
   );
 };
+
+export default Dropdown;
