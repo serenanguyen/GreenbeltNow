@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import "./assets/style.css";
 
 const App = () => {
+  console.log(process.env)
   return (
     <div className="App">
       <Map />
