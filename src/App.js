@@ -1,7 +1,7 @@
 import React from "react";
 import Map from "./components/Map";
 import Dropdown from "./components/Dropdown";
-import Results from './components/Results';
+import Results from "./components/Results";
 import Weather from "./components/Weather";
 import Footer from "./components/Footer";
 
@@ -19,6 +19,6 @@ const App = () => {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

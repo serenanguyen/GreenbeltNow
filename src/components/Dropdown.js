@@ -1,36 +1,40 @@
 import React, { useContext, useState } from "react";
 
-import{ locations }from "../staticData";
+import { locations } from "../staticData";
 
 import helpers from "../helpers";
 
-import { ResultsContext, LoadingContext } from "../Store";
+import { ResultsContext, LocationContext, LoadingContext } from "../Store";
 
 export default () => {
   const setIsLoading = useContext(LoadingContext).setState;
+  const { state: selectedLocation, setState: setLocation } = useContext(
+    LocationContext
+  );
   const setResults = useContext(ResultsContext).setState;
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLocation, setLocation] = useState("Select Location");
 
   const renderLocations = () => {
     const locationKeys = Object.keys(locations);
 
-    return locationKeys
-      // do not display selected location
-      .filter(location => location !== selectedLocation)
-      .map((location, i) => {
-        return (
-          <li
-            key={i}
-            className="item"
-            data-id={location}
-            onClick={handleSelect}
-          >
-            {locations[location].name}
-          </li>
-        );
-      });
+    return (
+      locationKeys
+        // do not display selected location
+        .filter(location => location !== selectedLocation)
+        .map((location, i) => {
+          return (
+            <li
+              key={i}
+              className="item"
+              data-id={location}
+              onClick={handleSelect}
+            >
+              {locations[location].name}
+            </li>
+          );
+        })
+    );
   };
 
   const handleSelect = e => {

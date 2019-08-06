@@ -25,8 +25,10 @@ const helpers = {
 
         // gauge reference
         const gaugeID = gaugeLocations[locationID];
-        waterData.gaugeReference = `Water data is being pulled from the gauge locatated at ${locations[gaugeID].name}.`
-         
+        waterData.gaugeReference = `Water data is being pulled from the gauge locatated at ${locations[
+          gaugeID
+        ].name}.`;
+
         const dataPoints = response.data.value.timeSeries;
 
         dataPoints.forEach(data => {
@@ -58,7 +60,7 @@ const helpers = {
         return waterData;
       })
       .catch(error => {
-        return waterData.error = error;
+        return (waterData.error = error);
       });
   }
 };
