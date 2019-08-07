@@ -1,30 +1,22 @@
 import React, { useEffect, useState } from "react";
+import weather from "openweather-apis";
 
 const Weather = () => {
   const [data, setData] = useState();
   // passing empty array as second arg treats this similarly to componentDidMount
-
-  const callBackendAPI = async () => {
-    const response = await fetch("/weather");
-    const body = await response.json();
-
-    if (response.status !== 200) {
-      throw Error(body.message);
-    }
-    return body;
-  };
-
   useEffect(() => {
-    callBackendAPI()
-      .then(res => {
-        const response = res.response;
-        setData({
-        temp: response.main.temp,
-        condition: response.weather[0].description,
-        img: response.weather[0].icon
+    weather.setLang("en");
+    weather.setCity("Austin");
+    weather.setUnits("imperial");
+    weather.setAPPID("42ebbe7c726c3fc801edf7558521481b");
+
+    weather.getAllWeather(function(err, res) {
+      setData({
+        temp: res.main.temp,
+        condition: res.weather[0].description,
+        img: res.weather[0].icon
       });
-      })
-      .catch(err => console.log(err));
+    });
   }, []);
 
   const imgUrl = data && `http://openweathermap.org/img/wn/${data.img}@2x.png`;

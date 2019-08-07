@@ -11,7 +11,7 @@ const Footer = () => {
         <i className="far fa-envelope" />
       </a>
       <a
-        href="https://www.instagram.com/serenanguyen_/"
+        href="https://www.instagram.com/pocketpossum_/"
         target="_blank"
         rel="noopener noreferrer"
       >
