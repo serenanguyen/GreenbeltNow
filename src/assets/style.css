@@ -27,8 +27,30 @@ code {
   position: relative;
 }
 
+/* MAP */
+
 .map {
   max-width: 640px;
+}
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-map-container {
+  position: relative;
+  max-width: 640px;
+}
+
+.anchor {
+  position: absolute;
+  z-index: 2; 
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 .weather-info {
