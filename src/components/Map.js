@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import helpers from "../helpers";
 
@@ -27,9 +27,7 @@ const Map = () => {
   return (
     <div className="map-container fadeInDown">
       <h1>GREENBELT NOW</h1>
-      <div
-        className="image-map-container"
-      >
+      <div className="image-map-container">
         <img
           src="https://i.imgur.com/5xW6mRh.png"
           className="map"
@@ -128,13 +126,9 @@ const Map = () => {
         </div>
       </div>
       <h2>Can I swim at the Greenbelt today</h2>
-      <p className="full-view">
+      <p>
         Select a Greenbelt access point on the map or dropdown menu to display
         the latest water data from the closest gauge.
-      </p>
-      <p className="responsive-view">
-        Select a Greenbelt access point from the dropdown menu to display the
-        latest water data from the closest gauge.
       </p>
     </div>
   );
