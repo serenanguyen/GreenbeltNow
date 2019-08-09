@@ -26,8 +26,3 @@ app.get("/weather", (req, res) => {
     res.send({ response });
   });
 });
-
-
-//production modeif(process.env.NODE_ENV === 'production') {  app.use(express.static(path.join(__dirname, 'client/build')));  //  app.get('*', (req, res) => {    res.sendfile(path.join(__dirname = 'client/build/index.html'));  })}
-//build modeapp.get('*', (req, res) => {  res.sendFile(path.join(__dirname+'/client/public/index.html'));})
-//start serverapp.listen(port, (req, res) => {  console.log( `server listening on port: ${port}`);})
