@@ -2,11 +2,15 @@ const express = require("express");
 const weather = require("openweather-apis");
 const app = express();
 const port = process.env.PORT || 5000;
-
-const WEATHER_KEY = process.env.WEATHER_KEY || require("./weatherKey.js");
+const dotenv = require('dotenv');
+dotenv.config();
+console.log(process.env.WEATHER_KEY)
+const WEATHER_KEY = process.env.WEATHER_KEY;
 
 // console.log that your server is up and running
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
 
 // create a GET route
 app.get("/weather", (req, res) => {
