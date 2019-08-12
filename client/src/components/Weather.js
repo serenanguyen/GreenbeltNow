@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import weather from "openweather-apis";
 
 const Weather = () => {
   const [data, setData] = useState();
-  // passing empty array as second arg treats this similarly to componentDidMount
 
   const fetchWeather = async () => {
     const response = await fetch("/api/weather");
@@ -13,6 +13,7 @@ const Weather = () => {
     return body;
   };
 
+    // passing empty array as second arg treats this similarly to componentDidMount
   useEffect(() => {
     fetchWeather()
       .then(res => {

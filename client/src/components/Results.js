@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Gauge from "react-svg-gauge";
 
 import { ResultsContext, LoadingContext } from "../Store";
@@ -7,10 +7,27 @@ const Results = () => {
   const results = useContext(ResultsContext).state;
   const isLoading = useContext(LoadingContext).state;
 
+  useEffect(() => {
+    // if mobile view~ scroll results into view
+    if (results && window.innerWidth < 1094) {
+      let element = document.querySelector(".results");
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  });
+
+  let className = "results";
+  // add animation class if in desktop view
+  if (window.innerWidth > 1094) {
+    className += " fadeInUp" 
+  }
+
   const renderResults = () => {
     const location = results.location;
     return (
-      <div className="results fadeInUp">
+      <div className={className}>
         <h2>{location.name}</h2>
         <p>{location.address}</p>
         <p>{results.gaugeReference}</p>
@@ -72,7 +89,7 @@ const Results = () => {
 
   // display results
   return (
-    <div className="results-container fadeInUp">
+    <div className="results-container">
       {isLoading && renderLoading()}
       {results && !isLoading && renderResults()}
     </div>
