@@ -3,11 +3,11 @@ const weather = require("openweather-apis");
 const path = require('path');
 
 const dotenv = require("dotenv");
-dotenv.config();
+// dotenv.config();
 
 const app = express();
 
-const WEATHER_KEY = process.ENV.WEATHER_KEY;
+const WEATHER_KEY = process.env.WEATHER_KEY;
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
