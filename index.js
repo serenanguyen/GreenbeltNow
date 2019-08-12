@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 const app = express();
 
 const WEATHER_KEY = process.env.WEATHER_KEY;
+console.log('vars', process.env);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 
