@@ -5,11 +5,8 @@ const Weather = () => {
   // passing empty array as second arg treats this similarly to componentDidMount
 
   const fetchWeather = async () => {
-    console.log('fetch weather')
     const response = await fetch("/api/weather");
     const body = await response.json();
-    console.log('body', body);
-    console.log('response', response);
     if (response.status !== 200) {
       throw Error(body.message);
     }
@@ -19,19 +16,18 @@ const Weather = () => {
   useEffect(() => {
     fetchWeather()
       .then(res => {
-        console.log('res', res);
         const response = res.response;
         setData({
-        temp: response.main.temp,
-        condition: response.weather[0].description,
-        img: response.weather[0].icon
-      });
+          temp: response.main.temp,
+          condition: response.weather[0].description,
+          img: response.weather[0].icon
+        });
       })
       .catch(err => console.log(err));
   }, []);
 
   const imgUrl = data && `http://openweathermap.org/img/wn/${data.img}@2x.png`;
-  console.log('render weather');
+
   return (
     <div className="weather">
       <h2>Current Weather in Austin, TX</h2>

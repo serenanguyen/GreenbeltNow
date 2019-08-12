@@ -9,6 +9,8 @@ const app = express();
 
 const WEATHER_KEY = process.env.WEATHER_KEY;
 
+console.log('weather key', WEATHER_KEY);
+
 app.use(express.static(path.join(__dirname, 'client/public')));
 
 // create a GET route
