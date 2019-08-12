@@ -25,7 +25,7 @@ const helpers = {
 
         // gauge reference
         const gaugeID = gaugeLocations[locationID];
-        waterData.gaugeReference = `Water data is being pulled from the gauge locatated at ${locations[
+        waterData.gaugeReference = `Water data is being pulled from the gauge located at ${locations[
           gaugeID
         ].name}.`;
 
