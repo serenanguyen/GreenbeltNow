@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import weather from "openweather-apis";
 
 const Weather = () => {
   const [data, setData] = useState();
