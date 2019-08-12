@@ -3,7 +3,7 @@ const weather = require("openweather-apis");
 const path = require('path');
 
 const dotenv = require("dotenv");
-// dotenv.config();
+dotenv.config();
 
 const app = express();
 
