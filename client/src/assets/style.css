@@ -1,0 +1,300 @@
+:root {
+  --accent-color: #055a5b;
+  --secondary-accent-color: #b9e0cf;
+}
+
+body {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  position: relative;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 5rem;
+  position: relative;
+}
+
+.map {
+  max-width: 640px;
+}
+
+.weather-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin-bottom: 6rem;
+}
+
+.weather-icon {
+  height: 4rem;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  padding: 0 3px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.query-container {
+  height: 38rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-left: 2rem;
+}
+
+.condition {
+  margin-bottom: 4rem;
+}
+
+h1,
+h2 {
+  margin-bottom: 0;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+a {
+  color: var(--accent-color);
+}
+
+.responsive-view {
+  display: none;
+}
+
+/* DROPDOWN */
+
+.dropdown {
+  cursor: pointer;
+  width: 16rem;
+  position: absolute;
+  top: 8rem;
+  z-index: 3;
+}
+
+.dropdown ul,
+.dropdown li {
+  text-decoration: none;
+  text-transform: none;
+  list-style: none;
+}
+
+.dropdown li,
+.dropdown .title {
+  height: 3rem;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown li {
+  border-top: none;
+  background-color: white;
+}
+
+.dropdown li:hover {
+  background-color: var(--secondary-accent-color);
+}
+
+.dropdown .title {
+  position: relative;
+  border-radius: 5px;
+  font-family: "Amatic SC", cursive;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.dropdown .title:after {
+  content: "";
+  position: absolute;
+  right: 0.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  background: url("./caret-down.svg") no-repeat center center;
+  background-size: contain;
+  color: var(--accent-color);
+  transition: all 0.3s;
+}
+
+.dropdown.active .title {
+  border-radius: 5px 5px 0 0;
+}
+
+.dropdown.active .title:after {
+  transform: rotate(180deg);
+  transition: all 0.3s;
+}
+
+.dropdown .list .item:last-child {
+  border-radius: 0 0 5px 5px;
+}
+
+.dropdown.active .list .item:last-child {
+  margin-bottom: 4rem;
+}
+
+.dropdown .list {
+  position: relative;
+  padding: 0;
+  border: 0;
+  border-top: 0;
+  overflow: hidden;
+  max-height: 0;
+  margin: 0;
+  transition: all 0.5s;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown.active .list {
+  transition: all 1s;
+  max-height: auto;
+  min-height: 1px;
+  max-height: 999px;
+}
+
+/* LOADING DROPLET ANIMATION */
+
+.loading {
+  display: flex;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+
+.droplet {
+  height: 16px;
+  width: 16px;
+  background-size: contain;
+  background-image: url("./droplet.svg");
+}
+
+.droplet:nth-child(1) {
+  /* name, duration, timing function, delay, count */
+  animation: loading 0.8s linear 0.1s infinite;
+}
+.droplet:nth-child(2) {
+  animation: loading 0.8s linear 0.2s infinite;
+}
+.droplet:nth-child(3) {
+  animation: loading 0.8s linear 0.3s infinite;
+}
+
+/* ANIMATIONS */
+
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes loading {
+  0% {
+    transform: translate(0, 0);
+  }
+  /* halfway through animation translate 15px along y axis*/
+  50% {
+    transform: translate(0, 15px);
+  }
+  /* translate back to origin */
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1094px) {
+  .App {
+    min-height: calc(100vh - 2rem);
+    display: block;
+    margin: 0 0.5rem;
+    flex-direction: column;
+  }
+
+  .map {
+    width: 100%;
+  }
+
+  .query-container {
+    height: auto;
+    width: auto;
+    margin: 0;
+  }
+
+  .results-containter {
+    width: 100%;
+  }
+
+  .full-view {
+    display: none;
+  }
+
+  .responsive-view {
+    display: block;
+  }
+}
