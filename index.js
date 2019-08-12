@@ -11,7 +11,7 @@ const WEATHER_KEY = process.env.WEATHER_KEY;
 
 console.log('weather key', WEATHER_KEY);
 
-app.use(express.static(path.join(__dirname, 'client/public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 // create a GET route
 app.get("/api/weather", (req, res) => {
@@ -31,7 +31,7 @@ app.get("/api/weather", (req, res) => {
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
