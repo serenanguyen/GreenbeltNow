@@ -5,6 +5,7 @@ const Weather = () => {
   // passing empty array as second arg treats this similarly to componentDidMount
 
   const fetchWeather = async () => {
+    console.log('fetch weather')
     const response = await fetch("/api/weather");
     const body = await response.json();
     console.log('body', body);
@@ -30,7 +31,7 @@ const Weather = () => {
   }, []);
 
   const imgUrl = data && `http://openweathermap.org/img/wn/${data.img}@2x.png`;
-
+  console.log('render weather');
   return (
     <div className="weather">
       <h2>Current Weather in Austin, TX</h2>
