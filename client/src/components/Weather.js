@@ -7,7 +7,8 @@ const Weather = () => {
   const fetchWeather = async () => {
     const response = await fetch("/api/weather");
     const body = await response.json();
-
+    console.log('body', body);
+    console.log('response', response);
     if (response.status !== 200) {
       throw Error(body.message);
     }
@@ -17,6 +18,7 @@ const Weather = () => {
   useEffect(() => {
     fetchWeather()
       .then(res => {
+        console.log('res', res);
         const response = res.response;
         setData({
         temp: response.main.temp,
